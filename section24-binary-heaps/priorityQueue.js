@@ -79,22 +79,24 @@ class PriorityQueue {
     }
 }
 
-ER = new PriorityQueue();
+// ER = new PriorityQueue();
 
-ER.enqueue('high fever', 5);
-console.log(ER);
-ER.enqueue('gunshot wound', 2);
-console.log(ER);
-ER.enqueue('stubbed toe', 10);
-console.log(ER);
-ER.enqueue('severed head', 1);
-console.log(ER);
+// ER.enqueue('high fever', 5);
+// console.log(ER);
+// ER.enqueue('gunshot wound', 2);
+// console.log(ER);
+// ER.enqueue('stubbed toe', 10);
+// console.log(ER);
+// ER.enqueue('severed head', 1);
+// console.log(ER);
 
-ER.dequeue();
-ER.dequeue();
-console.log(ER);
+// ER.dequeue();
+// ER.dequeue();
+// console.log(ER);
 // =>
 // PriorityQueue {
 //     values:
 //      [ Node { value: 'high fever', priority: 5 },
 //        Node { value: 'stubbed toe', priority: 10 } ] }
+
+module.exports = PriorityQueue;
