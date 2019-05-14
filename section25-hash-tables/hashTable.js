@@ -2,9 +2,9 @@
 // using separate chaining for collisions
 
 var hashTable = {
-    init(size = 53) {
-        this.keyMap = new Array(size);
-    },
+  init(size = 53) {
+    this.keyMap = new Array(size);
+  },
 
   _hash(key) {
     var total = 0;
@@ -78,9 +78,9 @@ var hashTable = {
   },
 
   getState() {
-      return {
-          keyMap: this.keyMap
-      }
+    return {
+      keyMap: this.keyMap
+    };
   }
 };
 
