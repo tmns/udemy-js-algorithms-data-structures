@@ -116,8 +116,8 @@ var singlyLinkedList = {
       return !!this.push(value);
     }
 
-    var newNode = node(value);
-    var prevNode = this.get(index - 1);
+    let newNode = node(value);
+    let prevNode = this.get(index - 1);
     newNode.next = prevNode.next;
     prevNode.next = newNode;
     this.length++;
@@ -137,8 +137,8 @@ var singlyLinkedList = {
       return this.pop();
     }
 
-    var prevNode = this.get(index - 1);
-    var nodeRemoved = prevNode.next;
+    let prevNode = this.get(index - 1);
+    let nodeRemoved = prevNode.next;
     prevNode.next = nodeRemoved.next;
     this.length--;
     return nodeRemoved.value;

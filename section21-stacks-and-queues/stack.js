@@ -1,45 +1,55 @@
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
+var stack = {
+  first: null,
+  last: null,
+  size: 0,
+
+  push(value) {
+    var newNode = node(value);
+
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      let oldFirst = this.first;
+      this.first = newNode;
+      this.first.next = oldFirst;
     }
+
+    return ++this.size;
+  },
+
+  pop() {
+    if (!this.first) {
+      return null;
+    }
+
+    var oldFirst = this.first;
+
+    if (this.first == this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+
+    this.size--;
+    return oldFirst.value;
+  }
+};
+
+function node(value) {
+  return {
+    value,
+    next: null
+  };
 }
 
-class Stack {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
-    }
+myStack = Object.create(stack);
 
-    push(value) {
-        const newNode = new Node(value);
+myStack.push(5);
+myStack.push(2);
+myStack.push(8);
+myStack.push(11);
 
-        if (!this.first) {
-            this.first = newNode;
-            this.last = newNode;
-        } else {
-            const oldFirst = this.first;
-            this.first = newNode;
-            this.first.next = oldFirst;
-        }
+console.log(myStack);
 
-        return ++this.size;
-    }
-
-    pop() {
-        if (!this.first) {
-            return null;
-        }
-
-        const oldFirst = this.first;
-        
-        if (this.first === this.last) {
-            this.last = null;
-        }
-        this.first = this.first.next;
-
-        this.size--;
-        return oldFirst.value;
-    }
-}
+myStack.pop();
+console.log(myStack);

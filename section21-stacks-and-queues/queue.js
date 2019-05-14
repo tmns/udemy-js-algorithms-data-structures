@@ -1,44 +1,54 @@
-class Node {
-    constructur(value) {
-        this.value = value;
-        this.next = null;
+var queue = {
+  first: null,
+  last: null,
+  size: 0,
+
+  enqueue(value) {
+    var newNode = node(value);
+
+    if (!this.first) {
+      this.first = newNode;
+      this.last = this.first;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
     }
+
+    return ++this.size;
+  },
+
+  dequeue() {
+    if (!this.first) {
+      return null;
+    }
+
+    var oldFirst = this.first;
+
+    if (this.first == this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+
+    this.size--;
+    return oldFirst;
+  }
+};
+
+function node(value) {
+  return {
+    value,
+    next: null
+  };
 }
 
-class Queue {
-    constructor() {
-        this.first = null;
-        this.last = null;
-        this.size = 0;
-    }
+var myQueue = Object.create(queue);
 
-    enqueue(value) {
-        const newNode = new Node(value);
-        
-        if (!this.first) {
-            this.first = newNode;
-            this.last = this.first;
-        } else {
-            this.last.next = newNode;
-            this.last = newNode;
-        }
+myQueue.enqueue(5);
+myQueue.enqueue(2);
+myQueue.enqueue(8);
+myQueue.enqueue(1);
 
-        return ++this.size;
-    }
+console.log(myQueue);
 
-    dequeue() {
-        if (!this.first) {
-            return null;
-        }
-
-        const oldFirst = this.first;
-
-        if (this.first === this.last) {
-            this.last = null;
-        }
-        this.first = this.first.next;
-
-        this.size--;
-        return oldFirst;
-    }
-}
+myQueue.dequeue();
+console.log(myQueue);
