@@ -42,7 +42,7 @@ function node(value) {
   };
 }
 
-myStack = Object.create(stack);
+var myStack = Object.create(stack);
 
 myStack.push(5);
 myStack.push(2);

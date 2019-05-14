@@ -157,7 +157,7 @@ function node(value) {
   };
 }
 
-list = Object.create(doublyLinkedList);
+var list = Object.create(doublyLinkedList);
 
 list.push(100);
 list.push(82);

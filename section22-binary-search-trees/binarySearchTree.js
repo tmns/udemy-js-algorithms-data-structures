@@ -65,7 +65,7 @@ function node(value) {
   };
 }
 
-const bst = Object.create(binarySearchTree);
+var bst = Object.create(binarySearchTree);
 
 bst.insert(10);
 bst.insert(1);
