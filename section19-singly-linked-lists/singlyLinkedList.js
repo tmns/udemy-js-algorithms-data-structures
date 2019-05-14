@@ -1,7 +1,7 @@
 var singlyLinkedList = {
-  length: 0,
   head: null,
   tail: null,
+  length: 0,
 
   push(value) {
     var newNode = node(value);
@@ -162,6 +162,14 @@ var singlyLinkedList = {
       curr = next;
     }
     return this;
+  },
+
+  getState() {
+    return {
+      head: this.head,
+      tail: this.tail,
+      length: this.length
+    };
   }
 };
 
@@ -172,35 +180,33 @@ function node(value) {
   };
 }
 
-var list = Object.create(singlyLinkedList);
+singlyLinkedList.push(10);
+singlyLinkedList.push(5);
+singlyLinkedList.push(13);
+singlyLinkedList.push(900);
+singlyLinkedList.push(33);
 
-list.push(10);
-list.push(5);
-list.push(13);
-list.push(900);
-list.push(33);
+console.log(singlyLinkedList.getState());
 
-console.log(list);
+singlyLinkedList.pop();
+console.log(singlyLinkedList.getState());
 
-list.pop();
-console.log(list);
+console.log(singlyLinkedList.shift());
+console.log(singlyLinkedList.getState());
 
-console.log(list.shift());
-console.log(list);
+singlyLinkedList.unshift(25);
+console.log(singlyLinkedList.getState());
 
-list.unshift(25);
-console.log(list);
+console.log(singlyLinkedList.get(3));
 
-console.log(list.get(3));
+singlyLinkedList.set(0, 1);
+console.log(singlyLinkedList.getState());
 
-list.set(0, 1);
-console.log(list);
+singlyLinkedList.insert(1, 22);
+console.log(singlyLinkedList.getState());
 
-list.insert(1, 22);
-console.log(list);
+singlyLinkedList.remove(1);
+console.log(singlyLinkedList.getState());
 
-list.remove(1);
-console.log(list);
-
-list.reverse();
-console.log(list);
+singlyLinkedList.reverse();
+console.log(singlyLinkedList.getState());

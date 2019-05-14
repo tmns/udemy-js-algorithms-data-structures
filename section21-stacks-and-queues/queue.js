@@ -31,6 +31,14 @@ var queue = {
 
     this.size--;
     return oldFirst;
+  },
+
+  getState() {
+    return {
+      first: this.first,
+      last: this.last,
+      size: this.size
+    }
   }
 };
 
@@ -41,14 +49,12 @@ function node(value) {
   };
 }
 
-var myQueue = Object.create(queue);
+queue.enqueue(5);
+queue.enqueue(2);
+queue.enqueue(8);
+queue.enqueue(1);
 
-myQueue.enqueue(5);
-myQueue.enqueue(2);
-myQueue.enqueue(8);
-myQueue.enqueue(1);
+console.log(queue.getState());
 
-console.log(myQueue);
-
-myQueue.dequeue();
-console.log(myQueue);
+queue.dequeue();
+console.log(queue.getState());

@@ -1,6 +1,6 @@
 var doublyLinkedList = {
   head: null,
-  tailL: null,
+  tail: null,
   length: 0,
 
   push(value) {
@@ -88,7 +88,7 @@ var doublyLinkedList = {
       }
     } else {
       foundNode = this.tail;
-      for (let i = this.list.length - 1; i > index; i--) {
+      for (let i = this.doublyLinkedList.length - 1; i > index; i--) {
         foundNode = foundNode.prev;
       }
     }
@@ -146,6 +146,14 @@ var doublyLinkedList = {
 
     this.length--;
     return removedNode;
+  },
+
+  getState() {
+    return {
+      head: this.head,
+      tail: this.tail,
+      length: this.length
+    };
   }
 };
 
@@ -157,31 +165,29 @@ function node(value) {
   };
 }
 
-var list = Object.create(doublyLinkedList);
+doublyLinkedList.push(100);
+doublyLinkedList.push(82);
+doublyLinkedList.push(103);
+doublyLinkedList.push(5);
+console.log(doublyLinkedList.getState());
 
-list.push(100);
-list.push(82);
-list.push(103);
-list.push(5);
-console.log(list);
+doublyLinkedList.pop();
+console.log(doublyLinkedList.getState());
 
-list.pop();
-console.log(list);
+doublyLinkedList.shift();
+console.log(doublyLinkedList.getState());
 
-list.shift();
-console.log(list);
+doublyLinkedList.unshift(2);
+doublyLinkedList.unshift(1);
+console.log(doublyLinkedList.getState());
 
-list.unshift(2);
-list.unshift(1);
-console.log(list);
+console.log(doublyLinkedList.get(2));
 
-console.log(list.get(2));
+doublyLinkedList.set(0, 5000);
+console.log(doublyLinkedList.getState());
 
-list.set(0, 5000);
-console.log(list);
+doublyLinkedList.insert(1, 300);
+console.log(doublyLinkedList.getState());
 
-list.insert(1, 300);
-console.log(list);
-
-list.remove(1);
-console.log(list);
+doublyLinkedList.remove(1);
+console.log(doublyLinkedList.getState());

@@ -65,15 +65,13 @@ function node(value) {
   };
 }
 
-var bst = Object.create(binarySearchTree);
+binarySearchTree.insert(10);
+binarySearchTree.insert(1);
+binarySearchTree.insert(44);
+binarySearchTree.insert(33);
+binarySearchTree.insert(1);
 
-bst.insert(10);
-bst.insert(1);
-bst.insert(44);
-bst.insert(33);
-bst.insert(1);
+console.log(binarySearchTree);
 
-console.log(bst);
-
-console.log(bst.find(44));
-console.log(bst.find(12));
+console.log(binarySearchTree.find(44));
+console.log(binarySearchTree.find(12));

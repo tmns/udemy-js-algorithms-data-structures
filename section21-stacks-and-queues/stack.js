@@ -32,6 +32,14 @@ var stack = {
 
     this.size--;
     return oldFirst.value;
+  },
+
+  getState() {
+    return {
+      first: this.first,
+      last: this.last,
+      size: this.size
+    }
   }
 };
 
@@ -42,14 +50,12 @@ function node(value) {
   };
 }
 
-var myStack = Object.create(stack);
+stack.push(5);
+stack.push(2);
+stack.push(8);
+stack.push(11);
 
-myStack.push(5);
-myStack.push(2);
-myStack.push(8);
-myStack.push(11);
+console.log(stack.getState());
 
-console.log(myStack);
-
-myStack.pop();
-console.log(myStack);
+stack.pop();
+console.log(stack.getState());
